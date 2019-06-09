@@ -75,14 +75,6 @@ public class AES {
 		return null;
 	}
  
-	/**
-	 * 对文件进行AES加密
-	 * 
-	 * @param sourceFile
-	 * @param fileType
-	 * @param sKey
-	 * @return
-	 */
 	public static File encryptFile(File sourceFile, File encrypfile) {
  
 		InputStream inputStream = null;

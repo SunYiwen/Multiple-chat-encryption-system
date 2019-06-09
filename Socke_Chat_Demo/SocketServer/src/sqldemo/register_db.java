@@ -39,11 +39,13 @@ public class register_db extends conn_db implements ActionListener{
 			else{
 				String user = username.getText();
 				String pass = password.getText();
+				int s=pass.hashCode();
 				System.out.println("username:"+user);
 				System.out.println("password:"+pass);
+				String ss=String.valueOf(s);
 				try {
 					connection();
-					writeInSql(user,pass);
+					writeInSql(user,ss);
 				} catch (Exception e1) {
 					System.out.println("≤Â»Î ß∞‹");
 					e1.printStackTrace();

@@ -36,14 +36,16 @@ public class login_db extends conn_db implements ActionListener {
 			else{
 				String username = userLabel.getText();
 				String password = passwordLabel.getText();
+				int s=password.hashCode();
+				String ss=String.valueOf(s);
 				try {
 					connection(); 		//加载conn_db类，连接数据库；
-					boolean com = compareWithSql(username,password);
+					boolean com = compareWithSql(username,ss);
 					if(com) {
 						MainWindow frame = new MainWindow();
 						frame.setVisible(true);
 						ChatManager.getChatManager().setWindow(frame);
-						JOptionPane.showMessageDialog(null, "登录成功");
+					//	JOptionPane.showMessageDialog(null, "登录成功");
 						
 						}
 					else{
