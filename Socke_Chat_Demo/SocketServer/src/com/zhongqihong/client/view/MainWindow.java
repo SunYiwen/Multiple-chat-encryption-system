@@ -68,6 +68,11 @@ public class MainWindow extends JFrame {
 
 			}
 		});
+
+		JButton button_2 = new JButton("choose");
+
+		JButton button_3 = new JButton("receive");
+
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane
 				.setHorizontalGroup(
@@ -78,10 +83,14 @@ public class MainWindow extends JFrame {
 												GroupLayout.PREFERRED_SIZE)
 										.addContainerGap())
 								.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-										.addComponent(send, GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE).addGap(18)
-										.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 135,
+										.addComponent(send, GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE).addGap(5)
+										.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 50,
 												GroupLayout.PREFERRED_SIZE)
-										.addGap(20))
+										.addGap(5)
+										.addComponent(button_2, GroupLayout.PREFERRED_SIZE, 30,
+												GroupLayout.DEFAULT_SIZE)
+										.addGap(5).addComponent(button_3, GroupLayout.PREFERRED_SIZE, 30,
+												GroupLayout.DEFAULT_SIZE))
 								.addComponent(txt, GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE));
 		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup().addContainerGap()
@@ -92,9 +101,11 @@ public class MainWindow extends JFrame {
 						.addPreferredGap(ComponentPlacement.RELATED)
 						.addComponent(txt, GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
 						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(send,
-								GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(button_1))
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(send, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(button_1).addComponent(button_2).addComponent(button_3))
+
 						.addContainerGap()));
 		contentPane.setLayout(gl_contentPane);
 	}

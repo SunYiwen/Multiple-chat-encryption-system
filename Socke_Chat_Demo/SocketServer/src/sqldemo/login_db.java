@@ -39,6 +39,7 @@ public class login_db extends conn_db implements ActionListener {
 					connection(); 		//加载conn_db类，连接数据库；
 					boolean com = compareWithSql(username,password);
 					if(com) {
+					//	System.out.println("");
 						JOptionPane.showMessageDialog(null, "登录成功");
 						MainWindow frame = new MainWindow();
 						frame.setVisible(true);
