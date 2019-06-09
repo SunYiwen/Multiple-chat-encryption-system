@@ -15,6 +15,7 @@ import javax.swing.JFileChooser;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import com.zhongqihong.client.ChatManager;
+import com.zhongqihong.socket.ServerListener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -107,6 +108,35 @@ public class MainWindow extends JFrame {
 		});
 
 		JButton button_3 = new JButton("receive");
+		button_3.addActionListener(new ActionListener() {
+		
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser chooser2 = new JFileChooser();//打开选择文件的页面；
+				chooser2.setMultiSelectionEnabled(true);
+				int returnVal = chooser2.showOpenDialog(button_2);//设为多选；
+				if (returnVal== JFileChooser.APPROVE_OPTION) { 
+					String filepath = chooser2.getSelectedFile().getAbsolutePath();
+					//显示到界面上
+					
+//					 ChatManager.getChatManager().send("你选择了:"+chooser2.getSelectedFile().getName());
+//					 appendText("你选择了:"+chooser2.getSelectedFile().getName());
+					try {
+						ServerListener.getFile();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}//先从流中获得信息再转换
+					// File choosefile = new File(chooser.getSelectedFile().getPath());//选择的加密文件
+					 //转换成文件格式
+					File encfile  = new File("D:\\mytext\\in.txt");
+					File decrypfile  = new File("D:\\mytext\\out.txt"); 
+					 AES.decryptFile(encfile, decrypfile);//机密文件从哪儿来从到哪儿去是规定的
+					  send.setText("");
+				}
+				
+			   
+			}
+		});
 
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane

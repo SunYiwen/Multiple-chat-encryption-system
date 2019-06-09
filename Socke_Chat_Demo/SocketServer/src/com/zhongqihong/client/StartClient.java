@@ -14,7 +14,6 @@ public class StartClient {
 			public void run() {
 				try {
 					//login_plus log=new login_plus();
-					JOptionPane.showMessageDialog(null, "µÇÂ¼³É¹¦");
 					MainWindow frame = new MainWindow();
 					frame.setVisible(true);
 					ChatManager.getChatManager().setWindow(frame);
