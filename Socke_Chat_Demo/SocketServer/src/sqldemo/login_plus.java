@@ -11,7 +11,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class login_plus {
-	public static void main(String[] args) {    
+	public login_plus(){    
         // 创建 JFrame 实例
         JFrame frame = new JFrame("多人加密聊天系统");
         frame.setSize(350, 200);
@@ -67,5 +67,6 @@ public class login_plus {
 		log.setusername(accountText);
 		log.setpasswordLabel(passwordText);
 		log.setButton(loginButton,registButton);
+		//System.out.println("in the login_plus");
     }
 }

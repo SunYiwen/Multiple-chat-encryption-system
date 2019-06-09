@@ -13,10 +13,7 @@ public class StartClient {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					//login_plus log=new login_plus();
-					MainWindow frame = new MainWindow();
-					frame.setVisible(true);
-					ChatManager.getChatManager().setWindow(frame);
+					login_plus now = new login_plus();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

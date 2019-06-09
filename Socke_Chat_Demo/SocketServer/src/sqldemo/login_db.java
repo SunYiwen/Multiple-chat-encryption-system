@@ -8,7 +8,8 @@ import java.sql.Statement;
 import javax.swing.*;
 
 import com.zhongqihong.client.ChatManager;
-import com.zhongqihong.client.view.MainWindow;
+import com.zhongqihong.client.StartClient;
+import com.zhongqihong.client.view.*;
 
 public class login_db extends conn_db implements ActionListener {
 	JTextField userLabel,passwordLabel;
@@ -39,11 +40,11 @@ public class login_db extends conn_db implements ActionListener {
 					connection(); 		//加载conn_db类，连接数据库；
 					boolean com = compareWithSql(username,password);
 					if(com) {
-					//	System.out.println("");
-						JOptionPane.showMessageDialog(null, "登录成功");
 						MainWindow frame = new MainWindow();
 						frame.setVisible(true);
 						ChatManager.getChatManager().setWindow(frame);
+						JOptionPane.showMessageDialog(null, "登录成功");
+						
 						}
 					else{
 						JOptionPane.showMessageDialog(null, "账号或密码不正确，请重新输入");

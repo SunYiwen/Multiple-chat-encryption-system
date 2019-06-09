@@ -8,7 +8,5 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/jce-jdk13-120.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.46.jar"/>
-	<classpathentry kind="lib" path="/sqldemo/lib/jce-jdk13-120.jar"/>
-	<classpathentry kind="lib" path="/sqldemo/lib/mysql-connector-java-5.1.46.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
