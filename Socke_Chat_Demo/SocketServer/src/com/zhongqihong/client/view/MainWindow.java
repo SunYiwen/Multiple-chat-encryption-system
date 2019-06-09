@@ -11,12 +11,17 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import com.zhongqihong.client.ChatManager;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 
 public class MainWindow extends JFrame {
 
@@ -70,6 +75,36 @@ public class MainWindow extends JFrame {
 		});
 
 		JButton button_2 = new JButton("choose");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser chooser = new JFileChooser();
+				chooser.setMultiSelectionEnabled(true);
+				int returnVal = chooser.showOpenDialog(button_2);//设为多选；
+				if (returnVal== JFileChooser.APPROVE_OPTION) { 
+					String filepath = chooser.getSelectedFile().getAbsolutePath();
+					//显示到界面上
+					
+					 ChatManager.getChatManager().send("你选择了:"+chooser.getSelectedFile().getName());
+					 appendText("你选择了:"+chooser.getSelectedFile().getName());
+					 File oldfile = new File(filepath);
+					 File encrypfile = new File("D:\\mytext\\in.txt");
+					 
+					 AES.encryptFile(oldfile, encrypfile);//对指定文件进行加密 但是加密到指定文件；
+					 send.setText("");
+					 //写入socket流
+					 try {
+						 ChatManager.getChatManager().sendFile(encrypfile);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					};
+					 
+					
+				}
+				
+			   
+			}
+		});
 
 		JButton button_3 = new JButton("receive");
 

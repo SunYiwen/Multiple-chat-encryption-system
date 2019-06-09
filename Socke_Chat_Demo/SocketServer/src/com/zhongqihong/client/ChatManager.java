@@ -1,6 +1,9 @@
 package com.zhongqihong.client;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -69,6 +72,31 @@ public class ChatManager {
 			pw.flush();
 		} else {
 			window.appendText("已中断与服务器的连接");
+		}
+	}
+	
+	public void sendFile(File file) throws IOException {
+		try {
+			FileInputStream fis = new FileInputStream(file);
+			DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+			dos.writeUTF(file.getName());
+			dos.flush();
+			dos.writeLong(file.length());
+			dos.flush();
+			System.out.println("开始传输文件");
+			
+			byte[] bytes = new byte[1024];
+			int length = 0;
+			while((length = fis.read(bytes, 0,bytes.length))!=-1) {
+				dos.write(bytes,0, length);
+				dos.flush();
+			}
+			
+		}catch(IOException e) {
+			e.printStackTrace();
+		}finally {
+//			fis.close();
+//			dos.close();
 		}
 	}
 }
