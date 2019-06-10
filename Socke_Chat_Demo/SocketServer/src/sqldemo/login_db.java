@@ -7,9 +7,9 @@ import java.sql.Statement;
 
 import javax.swing.*;
 
-import com.zhongqihong.client.ChatManager;
-import com.zhongqihong.client.StartClient;
-import com.zhongqihong.client.view.*;
+import com.Sunsss.client.ChatManager;
+import com.Sunsss.client.StartClient;
+import com.Sunsss.client.view.*;
 
 public class login_db extends conn_db implements ActionListener {
 	JTextField userLabel,passwordLabel;
